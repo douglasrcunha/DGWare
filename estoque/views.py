@@ -1,9 +1,8 @@
 from django.shortcuts import render, redirect, HttpResponse
+from .models import Produto
 
 def produto(request):
     dados = {
-        'nome_produto' : 'sabonete',
-        'preco_produto': 3.0,
-        'categoria_produto': 'higiene'
+        'dados': Produto.objects.all()
     }
     return render(request, 'produtos/produtos.html', dados)
