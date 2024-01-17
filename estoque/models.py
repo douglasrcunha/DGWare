@@ -5,5 +5,5 @@ class Produto(models.Model):
     nome_produto = models.TextField(max_length=100)
     preco_produto = models.FloatField()
     categoria_produto = models.TextField(max_length=100)
-    em_estoque = models.BooleanField(default=False)
+    em_estoque = models.BooleanField(default=True)
     data_in = models.DateField(default=datetime.now)
