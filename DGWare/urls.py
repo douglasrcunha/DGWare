@@ -21,4 +21,5 @@ from estoque import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.produto, name='produto'),
+    path('/<int:id_produto>', views.info, name='info'),
 ]

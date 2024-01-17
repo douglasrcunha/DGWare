@@ -7,9 +7,20 @@
 </head>
 <body>
     <h1>Produtos</h1>
-    <h4>{{nome_produto}}</h4>
-    <h4>{{preco_produto}}</h4>
-    <h4>{{categoria_produto}}</h4>
-    <h4>{{em_estoque}}</h4>    
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Produto</th>
+            <th>Preço</th>                                         
+        </tr>
+        {% for dado in dados %}
+        <tr>
+            <td>{{dado.id}}</td>
+            <td>{{dado.nome_produto}}</td>
+            <td>{{dado.preco_produto}}</td>
+            <td><button><a href="{% url 'info' dado.id %}">Info</a></button></td>
+        </tr>
+        {% endfor %}
+    </table>  
 </body>
 </html>
