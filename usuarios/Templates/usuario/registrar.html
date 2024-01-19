@@ -1,0 +1,12 @@
+{% extends 'Produtos/base.html' %}
+{% load crispy_forms_tags %}
+{% block conteudo %}
+<div class="container">
+    <form method="post">
+        {% csrf_token %}
+        {{ formulario | crispy }}
+        <button class="btn btn-primary" type="submit">Criar Novo Usuario</button>
+        <a href="#">Já possui uma conta? Entre aqui</a>
+    </form>
+</div>
+{% endblock %}        

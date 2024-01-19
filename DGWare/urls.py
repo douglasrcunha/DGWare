@@ -17,9 +17,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from estoque import views
+from usuarios import views as usuario_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('conta/', usuario_views.novo_usuario, name='novo_usuario'),
+    #path('login/', usuario_views.login, name='login'),
     path('', views.produto, name='produto'),
     path('novo_produto', views.criar, name='novo_produto'),
     path('novo_produto/<int:id_produto>', views.editar, name='editar'),
