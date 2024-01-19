@@ -21,5 +21,8 @@ from estoque import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.produto, name='produto'),
-    path('/<int:id_produto>', views.info, name='info'),
+    path('novo_produto', views.criar, name='novo_produto'),
+    path('novo_produto/<int:id_produto>', views.editar, name='editar'),
+    path('excluir_produto/<int:id_produto>', views.excluir, name='excluir'),
+    path('<int:id_produto>', views.info, name='info'),
 ]

@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, HttpResponse
 from .models import Produto
+from .forms import ProdutoForm
 
 def produto(request):
     dados = {
@@ -12,3 +13,36 @@ def info(request, id_produto):
         'dados' : Produto.objects.get(pk=id_produto)
     }
     return render(request, 'Produtos/info.html', dados)
+
+def criar(request):
+    if request.method == 'POST':
+        produto_form = ProdutoForm(request.POST)
+        if produto_form.is_valid():
+            produto_form.save()
+        return redirect('produto') 
+    else:   
+        produto_form = ProdutoForm()
+        formulario = {
+            'formulario': produto_form
+        }
+        return render(request, 'Produtos/novo_produto.html', context=formulario)
+    
+def editar(request, id_produto):
+    produto = Produto.objects.get(pk=id_produto)   
+    if request.method == 'GET':
+        formulario = ProdutoForm(instance=produto)
+        return render(request, 'Produtos/novo_produto.html', {'formulario': formulario})
+    else:
+        formulario = ProdutoForm(request.POST, instance=produto)
+        if formulario.is_valid():
+            formulario.save()
+        return redirect('produto')
+
+def excluir(request, id_produto):
+    produto = Produto.objects.get(pk=id_produto)
+    if request.method == 'GET':
+        return render(request, 'Produtos/confirmar_exclusao.html', {'item': produto})
+    else:
+        produto.delete()
+        return redirect('produto')
+    
