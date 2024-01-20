@@ -18,11 +18,13 @@ from django.contrib import admin
 from django.urls import path
 from estoque import views
 from usuarios import views as usuario_views
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('conta/', usuario_views.novo_usuario, name='novo_usuario'),
-    #path('login/', usuario_views.login, name='login'),
+    path('login/', auth_views.LoginView.as_view(template_name='usuarios/login.html'), name='login'),
+    path('logout/', usuario_views.logout, name='logout'),
     path('', views.produto, name='produto'),
     path('novo_produto', views.criar, name='novo_produto'),
     path('novo_produto/<int:id_produto>', views.editar, name='editar'),
