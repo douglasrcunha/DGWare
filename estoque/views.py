@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, HttpResponse
 from .models import Produto
 from .forms import ProdutoForm
+from django.contrib.auth.decorators import login_required
 
 def produto(request):
     dados = {
@@ -14,6 +15,8 @@ def info(request, id_produto):
     }
     return render(request, 'Produtos/info.html', dados)
 
+
+@login_required
 def criar(request):
     if request.method == 'POST':
         produto_form = ProdutoForm(request.POST)
@@ -26,7 +29,9 @@ def criar(request):
             'formulario': produto_form
         }
         return render(request, 'Produtos/novo_produto.html', context=formulario)
-    
+
+
+@login_required
 def editar(request, id_produto):
     produto = Produto.objects.get(pk=id_produto)   
     if request.method == 'GET':
@@ -38,6 +43,8 @@ def editar(request, id_produto):
             formulario.save()
         return redirect('produto')
 
+
+@login_required
 def excluir(request, id_produto):
     produto = Produto.objects.get(pk=id_produto)
     if request.method == 'GET':

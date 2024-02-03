@@ -3,7 +3,9 @@ from django.contrib import messages
 from .forms import UserRegisterForm
 
 
+
 def novo_usuario(request):
+    # tipo, validar, informar, salvar
     if request.method == 'POST':
         formulario = UserRegisterForm(request.POST)
         if formulario.is_valid():
@@ -17,6 +19,3 @@ def novo_usuario(request):
         formulario = UserRegisterForm()
 
     return render(request, 'usuarios/registrar.html', {'formulario': formulario})
-
-def logout(request):
-    return render(request, 'usuarios/logout.html')

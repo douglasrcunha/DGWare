@@ -81,9 +81,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'dgware_db',
-	'USER': 'postgres',
-	'PASSWORD': '*682970*',
-	'HOST': 'localhost',
+	    'USER': 'postgres',
+	    'PASSWORD': '*9897858*',
+	    'HOST': 'localhost',
     }
 }
 
