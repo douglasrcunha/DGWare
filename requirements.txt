@@ -1,5 +1,4 @@
 asgiref==3.7.2
-bootstrap4==0.1.0
 crispy-bootstrap5==2023.10
 Django==4.2
 django-crispy-forms==2.1
