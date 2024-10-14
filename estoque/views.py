@@ -7,13 +7,13 @@ def produto(request):
     dados = {
         'dados': Produto.objects.all()
     }
-    return render(request, 'produtos/produtos.html', dados)
+    return render(request, './Produtos/produtos.html', dados)
 
 def info(request, id_produto):
     dados = {
         'dados' : Produto.objects.get(pk=id_produto)
     }
-    return render(request, 'Produtos/info.html', dados)
+    return render(request, './Produtos/info.html', dados)
 
 
 @login_required
@@ -28,7 +28,7 @@ def criar(request):
         formulario = {
             'formulario': produto_form
         }
-        return render(request, 'Produtos/novo_produto.html', context=formulario)
+        return render(request, './Produtos/novo_produto.html', context=formulario)
 
 
 @login_required
@@ -36,7 +36,7 @@ def editar(request, id_produto):
     produto = Produto.objects.get(pk=id_produto)   
     if request.method == 'GET':
         formulario = ProdutoForm(instance=produto)
-        return render(request, 'Produtos/novo_produto.html', {'formulario': formulario})
+        return render(request, './Produtos/novo_produto.html', {'formulario': formulario})
     else:
         formulario = ProdutoForm(request.POST, instance=produto)
         if formulario.is_valid():
@@ -48,7 +48,7 @@ def editar(request, id_produto):
 def excluir(request, id_produto):
     produto = Produto.objects.get(pk=id_produto)
     if request.method == 'GET':
-        return render(request, 'Produtos/confirmar_exclusao.html', {'item': produto})
+        return render(request, './Produtos/confirmar_exclusao.html', {'item': produto})
     else:
         produto.delete()
         return redirect('produto')
