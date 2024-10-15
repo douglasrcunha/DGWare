@@ -25,7 +25,8 @@ SECRET_KEY = 'django-insecure-ybkbnc=0#h4t%ygbyi07s=1(p50=-c1k1db3@h7ir%7rm*&1-%
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['temp.douglasrcunha.com', 'wwww.temp.douglasrcunha.com', 'localhost', 
+'100.113.39.122', '192.168.68.105', 'konohagakure.tail991724.ts.net', '127.0.0.1']
 
 
 # Application definition
@@ -58,7 +59,7 @@ ROOT_URLCONF = 'DGWare.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['Templates/'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -79,11 +80,12 @@ WSGI_APPLICATION = 'DGWare.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'dgware_db',
-	    'USER': 'postgres',
-	    'PASSWORD': '*9897858*',
-	    'HOST': 'localhost',
+         'USER': 'douglasrcunha',
+         'PASSWORD': '*9897858*',
+         'HOST': 'localhost',
+	 'PORT': '5433',
     }
 }
 
