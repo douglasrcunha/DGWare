@@ -32,3 +32,10 @@ O Visual Studio Code é um editor de código-fonte desenvolvido pela Microsoft p
 
 (https://code.visualstudio.com/docs)
 
+## Screenshots
+
+![App Screenshot](https://github.com/douglasrcunha/DGWare/blob/main/screenshots/cadastro.png?raw=true)
+![App Screenshot](https://github.com/douglasrcunha/DGWare/blob/main/screenshots/info.png?raw=true)
+![App Screenshot](https://github.com/douglasrcunha/DGWare/blob/main/screenshots/login.png?raw=true)
+
+
